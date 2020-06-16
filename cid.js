@@ -74,6 +74,10 @@ export default multiformats => {
       this._multihash = cid
     }
 
+    get asCID () {
+      return this
+    }
+
     set _multihash (hash) {
       const { length, digest } = multihash.decode(hash)
       if (digest.length !== length) throw new Error('Incorrect length')
@@ -136,6 +140,7 @@ export default multiformats => {
       return {
         code: this.code,
         version: this.version,
+        asCID: this,
         hash: this.multihash
       }
     }

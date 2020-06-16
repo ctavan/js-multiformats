@@ -325,7 +325,7 @@ describe('CID', () => {
 
   test('toJSON()', () => {
     const cid = new CID(1, 112, hash)
-    same(cid.toJSON(), { code: 112, version: 1, hash })
+    same(cid.toJSON(), { code: 112, version: 1, hash, asCID: cid.asCID })
   })
 
   test('isCID', () => {
