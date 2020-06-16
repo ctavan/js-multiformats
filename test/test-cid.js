@@ -325,7 +325,12 @@ describe('CID', () => {
 
   test('toJSON()', () => {
     const cid = new CID(1, 112, hash)
-    same(cid.toJSON(), { code: 112, version: 1, hash, asCID: cid.asCID })
+    const obj = cid.toJSON()
+    same(obj.code, 112)
+    same(obj.version, 1)
+    same(obj.hash, hash)
+    if (obj.asCID !== cid) throw new Error('asCID is not present')
+    same(Object.keys(obj), ['code', 'version', 'asCID', 'hash'])
   })
 
   test('isCID', () => {

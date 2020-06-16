@@ -72,10 +72,7 @@ export default multiformats => {
       ;[code, cid] = parse(cid)
       readonly(this, 'code', code)
       this._multihash = cid
-    }
-
-    get asCID () {
-      return this
+      this.asCID = this
     }
 
     set _multihash (hash) {
